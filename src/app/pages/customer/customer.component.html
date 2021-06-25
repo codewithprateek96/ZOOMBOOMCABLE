@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper">
+
+    <div class="container">
+
+        <div class="row" style="margin-top: 10px;">
+
+            <div class="col-md-4 offset-md-3">
+                
+                <div class="container text-center" >
+                    <h1 class="text-center">Enter Customer Details</h1>
+                </div>
+                
+                   
+                <form (ngSubmit) = "addCustomer()">
+                    
+                    <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input name="name" [(ngModel)] = "customer.name" matInput placeholder="Enter Customer Name">
+                    <mat-hint>Customer Name must be unique</mat-hint>
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Quarter Number</mat-label>
+                    <input name="qno" [(ngModel)] = "customer.qno" matInput placeholder="Enter Quarter Number">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Street Name</mat-label>
+                        <input name="street" [(ngModel)] = "customer.street" matInput placeholder="Enter Street Name">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Mobile Number</mat-label>
+                        <input name="mobile" [(ngModel)] = "customer.mobile" matInput placeholder="Enter Mobile Number">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>NUID Number</mat-label>
+                        <input name="nuid" [(ngModel)] = "customer.nuid" matInput placeholder="Enter NUID Number">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Status</mat-label>
+                        <input name="status" [(ngModel)] = "customer.status" matInput placeholder="Enter status">
+                    </mat-form-field>
+                    
+                    <div class="container text-center">
+                        <button mat-raised-button color="primary" type="Submit">Submit</button>
+                    </div>
+                </form>
+                <br>
+                <form class="container text-center" (ngSubmit)="billingDetails()">
+                    <button mat-raised-button color="primary" type="Submit">Enter Billing Details</button>
+                </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="bootstrap-wrapper">
+   
+    <div class="container">
+        
+        <div class="row" style="margin-top: 10px;">
+            
+            <div class="col-md-6 offset-md-3">
+                
+                <div class="container text-center" >
+                    <h1 class="text-center">Enter Monthly Billing Details </h1>
+                </div>
+                
+                    
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Select Quarter Number</mat-label>
+                            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+                                <mat-option *ngFor="let cust of filteredCustomers | async" [value]="cust" (click)=addCustomer(cust)>
+                                    {{cust.qno}} 
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
+                    
+
+                    <form (ngSubmit) = addBillingDetails()>
+
+                       
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Enter Quarter Number</mat-label>
+                            <input name="qno" [(ngModel)] = "billingList.qno" matInput placeholder="Enter Quarter Number">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Enter Year</mat-label>
+                            <input name="year" [(ngModel)] = "billingList.year" matInput placeholder="Enter Year ">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Enter Monthly Amount</mat-label>
+                            <input name="amount" [(ngModel)] = "billingList.amount" matInput placeholder="Enter Monthly Amount">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Enter Dues</mat-label>
+                            <input name="dues" [(ngModel)] = "billingList.dues" matInput placeholder="Enter Dues">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Enter Total Amount</mat-label>
+                            <input name="total" [(ngModel)] = "billingList.total" matInput placeholder="Enter Total Amount">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Enter Amount Paid</mat-label>
+                            <input name="amountPaid" [(ngModel)] = "billingList.amountPaid" matInput placeholder="Enter Amount Paid">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Enter Month</mat-label>
+                            <input name="month" [(ngModel)] = "billingList.month" matInput placeholder="Enter Month">
+                        </mat-form-field>
+
+                        <div class="container text-center" >
+                            <button mat-raised-button color="primary" type="Submit">Submit</button>
+                        </div>
+
+                    </form>
+
+                    <!-- {{selectedCustomer | json}} -->
+
+            </div>
+        </div>
+    </div>
+</div>
